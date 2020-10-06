@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#000000">
@@ -21,21 +21,29 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Lingo_WebApp</title>
-  </head>
-  <body>
+</head>
+<body>
     <noscript>
-      You need to enable JavaScript to run this app.
+        You need to enable JavaScript to run this app.
     </noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <div id="root">        </div>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+    <div class="center">
+        <label id="guess-0.0"></label>
+        <label id="guess-0.1"></label>
+        <label id="guess-0.2" ></label>
+        <label id="guess-0.3"></label>
+        <label id="guess-0.4" ></label>
+    </div>
+    <div class="center">
+        <label id="label" />
+        <input type="text" id="entry" />
+        <button id="SubmitButton" onclick="Submit()">
+            Submit
+        </button>
+        <button id="NewWordButton" onclick="Submit()">
+            New word
+        </button>
+    </div>
+</body>
 </html>

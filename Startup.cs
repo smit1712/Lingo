@@ -1,3 +1,4 @@
+using Lingo_WebApp.Controllers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -23,11 +24,15 @@ namespace Lingo_WebApp
 
             services.AddControllersWithViews();
 
+            services.AddSingleton<LingoController, LingoController>();
+
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/build";
             });
+
+            services.AddMvc().AddControllersAsServices();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,17 +55,15 @@ namespace Lingo_WebApp
 
             app.UseRouting();
 
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.MapControllerRoute(
-            //        name: "default",
-            //        pattern: "{controller}/{action=Index}/{id?}");
-            //});
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute(
+                   name: "Lingo",
+                   pattern: "{LingoController}/{action=Index}/{id?}");
             });
 
             app.UseSpa(spa =>
